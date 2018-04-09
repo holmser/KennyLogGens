@@ -28,9 +28,9 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "klog",
-	Short: "KennyLoggins",
+	Short: "KennyLogGens",
 	Long: `
-	KennyLoggins is a utility for generating log files for testing log
+	KennyLogGens is a utility for generating log files for testing log
 	shipping systems.  Welcome to the Danger Zone.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:

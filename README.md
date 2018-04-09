@@ -3,7 +3,7 @@
 ![Kenny Loggins](images/kennyloggins.jpg)
 
 ```
-	KennyLoggins is a utility for generating log files for testing log
+	KennyLogGens is a utility for generating log files for testing log
 	shipping systems.  Welcome to the Danger Zone.
 
 Usage:
