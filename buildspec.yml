@@ -1,11 +1,13 @@
 version: 0.2
 
 phases:
+
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Go code...
-      - go build -o klog main.go 
+      - go get
+      - go build main.go 
   post_build:
     commands:
       - echo Build completed on `date`
