@@ -16,7 +16,6 @@ package cmd
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strings"
 	"time"
@@ -31,7 +30,7 @@ var genCmd = &cobra.Command{
 	Short: "Generate logs to syslog",
 	Long:  `This will alternately spew the lyrics to Danny's Song and Danger Zone to syslog. `,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("gen called")
+		logGen()
 	},
 }
 
@@ -46,19 +45,20 @@ func init() {
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// genCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	//genCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// genCmd.Flags().IntVarP(&seconds, "seconds", "s", 1, "number of seconds between log entries")
 }
 
 func logGen() {
-	backend1 := logging.NewLogBackend(os.Stderr, "", 0)
-	backend2, err := logging.NewSyslogBackend("klog")
+	stdout := logging.NewLogBackend(os.Stderr, "", 0)
+	syslog, err := logging.NewSyslogBackend("klog")
 	if err != nil {
 		log.Fatal(err)
 	}
-	backend1Formatter := logging.NewBackendFormatter(backend1, format)
-	backend2Formatter := logging.NewBackendFormatter(backend2, format)
+	stdoutFmt := logging.NewBackendFormatter(stdout, format)
+	syslogFmt := logging.NewBackendFormatter(syslog, format)
 
-	logging.SetBackend(backend2Formatter, backend1Formatter)
+	logging.SetBackend(syslogFmt, stdoutFmt)
 
 	inFile, _ := os.Open("dangerzone.txt")
 	defer inFile.Close()
@@ -86,9 +86,11 @@ func logGen() {
 		} else {
 			log.Info(text)
 		}
-		time.Sleep(1000 * time.Millisecond)
+		time.Sleep(time.Duration(seconds) * time.Second)
 	}
 }
+
+var seconds int
 
 var log = logging.MustGetLogger("example")
 
