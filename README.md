@@ -1,6 +1,6 @@
 # KennyLogGens
 
-![Kenny Loggins](images/kennyloggins.jpg)
+![Kenny Loggins](images/kennyloggins_small.jpg)
 
 ```
 	KennyLogGens is a utility for generating log files for testing log
