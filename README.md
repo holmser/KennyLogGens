@@ -2,9 +2,10 @@
 
 ![Kenny Loggins](images/kennyloggins_small.jpg)
 
+KennyLogGens is a utility for generating log files for testing log
+shipping systems written in Go  and using Cobra.  Welcome to the Danger Zone.
+
 ```
-	KennyLogGens is a utility for generating log files for testing log
-	shipping systems.  Welcome to the Danger Zone.
 
 Usage:
   klog [flags]
