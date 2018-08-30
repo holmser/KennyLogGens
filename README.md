@@ -6,19 +6,18 @@ KennyLogGens is a utility for generating log files for testing log
 shipping systems written in Go  and using Cobra.  Welcome to the Danger Zone.
 
 ```
-
 Usage:
   klog [flags]
   klog [command]
 
 Available Commands:
+  cook        Cook CPU
   gen         Generate logs to syslog
   help        Help about any command
 
 Flags:
-      --config string   config file (default is $HOME/.tmp.yaml)
-  -h, --help            help for klog
-  -t, --toggle          Help message for toggle
+  -h, --help          help for klog
+  -s, --seconds int   number of seconds between log entries (default 1)
 
 Use "klog [command] --help" for more information about a command.
 
