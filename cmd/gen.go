@@ -36,7 +36,6 @@ var genCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(genCmd)
-
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
@@ -82,9 +81,9 @@ func logGen() {
 			// }
 			// time.Sleep(time.Second * 10)
 			// close(done)
-			log.Error(text)
+			log.Error(strings.TrimSpace(text))
 		} else {
-			log.Info(text)
+			log.Info(strings.TrimSpace(text))
 		}
 		time.Sleep(time.Duration(seconds) * time.Second)
 	}
