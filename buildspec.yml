@@ -6,11 +6,17 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Go code...
-      - go get
+      - go get -verbose
       - go build -o klog main.go 
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
+<<<<<<< Updated upstream
     - klog
+=======
+    - klog
+    - appspec.yml
+  discard-paths: yes
+>>>>>>> Stashed changes
