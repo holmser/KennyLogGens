@@ -6,6 +6,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Go code...
+      - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
+      - echo GOPATH - $GOPATH
       - go get -v
       - go build -o klog main.go 
   post_build:
