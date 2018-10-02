@@ -32,3 +32,5 @@ Use "klog [command] --help" for more information about a command.
 10:16:45.096 logGen ▶ ERROR 	Highway to the danger zone
 10:16:46.100 logGen ▶ ERROR 	Ride into the danger zone
 ```
+
+Add some code
